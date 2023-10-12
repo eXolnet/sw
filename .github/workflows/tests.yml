@@ -1,0 +1,80 @@
+name: tests
+
+on:
+  push:
+  pull_request:
+  schedule:
+    - cron: '0 6 1 * *'
+
+jobs:
+  testing:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 8.2
+          extensions: json, dom, curl, libxml, mbstring
+          coverage: pcov
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: 'yarn'
+          registry-url: 'https://npm.pqina.nl/'
+          always-auth: true
+          scope: '@pqina'
+
+      - name: Get Composer cache directory
+        id: composer-cache
+        run: echo "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
+
+      - name: Cache Composer dependencies
+        uses: actions/cache@v3
+        with:
+          path: ${{ steps.composer-cache.outputs.dir }}
+          key: composer-cache-${{ runner.os }}-${{ hashFiles('**/composer.lock') }}
+          restore-keys: composer-cache-${{ runner.os }}-
+
+      - name: Install Composer dependencies
+        run: composer install
+
+      - name: Install Yarn dependencies
+        run: |
+          yarn install
+
+      - name: Build production bundle
+        run: |
+          yarn build
+
+      - name: Cache Laravel system files
+        run: |
+          php artisan config:cache --env=testing
+          php artisan event:cache --env=testing
+          php artisan route:cache --env=testing
+          php artisan view:cache --env=testing
+
+      - name: Create Laravel storage link
+        run: php artisan storage:link
+
+      - name: Run linters
+        run: |
+          composer lint
+#          yarn lint
+
+      - name: Run PHPStan
+        run: composer phpstan
+
+      - name: Execute tests
+        run: |
+          composer test:coverage
+          yarn test:coverage --ci
+
+      - name: Archive code coverage results
+        uses: actions/upload-artifact@v3
+        with:
+          name: code-coverage-report
+          path: coverage
