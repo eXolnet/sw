@@ -44,7 +44,7 @@
             "@lint:phpcs",
             "@lint:pint"
         ],
-        "lint:fix": "vendor/bin/phpcbf -p --standard=ruleset.xml",
+        "lint:fix": "vendor/bin/phpcbf -p --standard=ruleset.xml && vendor/bin/pint",
         "lint:phpcs": "vendor/bin/phpcs -p -s --standard=ruleset.xml",
         "lint:pint": "vendor/bin/pint --test",
         "phpstan": "APP_ENV=testing vendor/bin/phpstan analyse --memory-limit=2G",
