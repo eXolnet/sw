@@ -36,6 +36,8 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     Route::get('/movies', [MovieController::class, 'index'])->name('movies.index');
+    Route::get('/movies/create', [MovieController::class, 'create'])->name('movies.create');
+    Route::post('/movies/post', [MovieController::class, 'pots'])->name('movies.post');
 });
 
 require __DIR__ . '/auth.php';

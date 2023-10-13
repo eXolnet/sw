@@ -35,4 +35,12 @@ class MovieController extends Controller
             ],
         ]);
     }
+
+    /**
+     * @return \Inertia\Response
+     */
+    public function create(): Response
+    {
+        return Inertia::render('Movies/Create');
+    }
 }
