@@ -8,3 +8,4 @@ export type PageProps<T extends Record<string, unknown> = Record<string, unknown
 
 export * from "@/types/user";
 export * from "@/types/movie";
+export * from "@/types/paginator";
