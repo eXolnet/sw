@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\MovieController;
+use App\Http\Controllers\MovieDataFetcherController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -38,6 +39,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/movies', [MovieController::class, 'index'])->name('movies.index');
     Route::get('/movies/create', [MovieController::class, 'create'])->name('movies.create');
     Route::post('/movies/post', [MovieController::class, 'pots'])->name('movies.post');
+    Route::post('/movies/fetch-data', [MovieDataFetcherController::class, 'post'])->name('movies.fetch-data.post');
 });
 
 require __DIR__ . '/auth.php';

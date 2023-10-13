@@ -1,13 +1,41 @@
 <script setup lang="ts">
-import { ref } from 'vue';
-import ApplicationLogo from '@/Components/ApplicationLogo.vue';
-import Dropdown from '@/Components/Dropdown.vue';
-import DropdownLink from '@/Components/DropdownLink.vue';
-import NavLink from '@/Components/NavLink.vue';
-import ResponsiveNavLink from '@/Components/ResponsiveNavLink.vue';
-import { Link } from '@inertiajs/vue3';
+    import { ref } from 'vue';
+    import ApplicationLogo from '@/Components/ApplicationLogo.vue';
+    import Dropdown from '@/Components/Dropdown.vue';
+    import DropdownLink from '@/Components/DropdownLink.vue';
+    import NavLink from '@/Components/NavLink.vue';
+    import ResponsiveNavLink from '@/Components/ResponsiveNavLink.vue';
+    import { Link, useForm } from '@inertiajs/vue3';
+    import axios from "axios";
+    import Modal from "@/Components/Modal.vue";
+    import SecondaryButton from "@/Components/SecondaryButton.vue";
+    import PrimaryButton from "@/Components/PrimaryButton.vue";
 
-const showingNavigationDropdown = ref(false);
+    const showingNavigationDropdown = ref(false);
+
+    const form = useForm({});
+
+    const confirmingFetchData = ref(false);
+    const confirmFetchDataAction = () => {
+        confirmingFetchData.value = true;
+    };
+
+    const closeModal = () => {
+        confirmingFetchData.value = false;
+    };
+
+    function submit() {
+        confirmingFetchData.value = false;
+
+        axios.post(route('movies.fetch-data.post'))
+            .then((response) => {
+                alert('Fetch started! You will be notified when it is done.');
+            })
+            .catch((error) => {
+                alert(error.response.data.message);
+            });
+    }
+
 </script>
 
 <template>
@@ -65,6 +93,7 @@ const showingNavigationDropdown = ref(false);
 
                                     <template #content>
                                         <DropdownLink :href="route('profile.edit')" :active="route().current('profile.edit')"> Profile </DropdownLink>
+                                        <button @click="confirmFetchDataAction" class="block w-full px-4 py-2 text-left text-sm leading-5 text-gray-300 hover:bg-gray-800 focus:outline-none focus:bg-gray-800 transition duration-150 ease-in-out"> Fetch Movie Data </button>
                                         <DropdownLink :href="route('logout')" method="post" as="button">
                                             Log Out
                                         </DropdownLink>
@@ -149,4 +178,25 @@ const showingNavigationDropdown = ref(false);
             </main>
         </div>
     </div>
+
+    <Modal :show="confirmingFetchData" @close="closeModal">
+        <div class="p-6">
+            <h2 class="text-lg font-medium text-gray-100">
+                This action take time, are you sure?
+            </h2>
+
+            <div class="mt-6 flex justify-end">
+                <SecondaryButton @click="closeModal"> Cancel </SecondaryButton>
+
+                <PrimaryButton
+                    class="ml-3"
+                    :class="{ 'opacity-25': form.processing }"
+                    :disabled="form.processing"
+                    @click="submit"
+                >
+                    Confirm
+                </PrimaryButton>
+            </div>
+        </div>
+    </Modal>
 </template>

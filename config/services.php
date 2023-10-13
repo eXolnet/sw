@@ -31,4 +31,8 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'swapi' => [
+        'url' => env('SWAPI_URL', 'https://swapi.dev/api/'),
+    ]
+
 ];
