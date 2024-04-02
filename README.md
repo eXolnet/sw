@@ -46,6 +46,13 @@ docker-compose down --volumes
 ./vendor/bin/sail up
 ```
 
+If you are getting a error like `open /Users/{USER}/.docker/buildx/current: permission denied` when starting sail. You can try this command and restart sail.
+```
+sudo chown -R $(whoami) ~/.docker
+./vendor/bin/sail up
+```
+reference: https://stackoverflow.com/questions/75686903/open-users-user-docker-buildx-current-permission-denied-on-macbook
+
 ## Project setup
 ```
 ./vendor/bin/sail php artisan key:generate
