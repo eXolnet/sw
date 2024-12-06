@@ -502,19 +502,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/history@npm:^4.7.11":
-  version: 4.7.11
-  resolution: "@types/history@npm:4.7.11"
-  checksum: 10/1da529a3485f3015daf794effa3185493bf7dd2551c26932389c614f5a0aab76ab97645897d1eef9c74ead216a3848fcaa019f165bbd6e4b71da6eff164b4c68
+"@types/qs@npm:^6.9.17":
+  version: 6.9.17
+  resolution: "@types/qs@npm:6.9.17"
+  checksum: 10/fc3beda0be70e820ddabaa361e8dfec5e09b482b8f6cf1515615479a027dd06cd5ba0ffbd612b654c2605523f45f484c8905a475623d6cd0c4cadcf5d0c517f5
   languageName: node
   linkType: hard
 
 "@types/ziggy-js@npm:^1.3.2":
-  version: 1.3.3
-  resolution: "@types/ziggy-js@npm:1.3.3"
+  version: 1.8.0
+  resolution: "@types/ziggy-js@npm:1.8.0"
   dependencies:
-    "@types/history": "npm:^4.7.11"
-  checksum: 10/1a486e9174b3c6070c4620adad618a989e6b2d9dae5863853ac1ffa3b27453b1bb1f0d0b15aae4c0ed33b676e9445d5f4d4c59d94afee1c4cb3255e061fa87f0
+    ziggy-js: "npm:*"
+  checksum: 10/0befb826bd88e2f2b107878037f6adf883d076729f2b2a70e635f445289a71ad97191b008b59b18fb89fc8082ef99251bb93dd338ccf3b762410692780447e72
   languageName: node
   linkType: hard
 
@@ -2122,6 +2122,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"qs@npm:~6.9.7":
+  version: 6.9.7
+  resolution: "qs@npm:6.9.7"
+  checksum: 10/fb364b54bf4f092a095554968f5abf06036cfe359c9aba258a81b0c0366f625a46098fe1224b2a71ee2f88642470af391c7a8a1496508eca29c37093293f91a9
+  languageName: node
+  linkType: hard
+
 "queue-microtask@npm:^1.2.2":
   version: 1.2.3
   resolution: "queue-microtask@npm:1.2.3"
@@ -2741,5 +2748,15 @@ __metadata:
   bin:
     yaml: bin.mjs
   checksum: 10/cf412f03a33886db0a3aac70bb4165588f4c5b3c6f8fc91520b71491e5537800b6c2c73ed52015617f6e191eb4644c73c92973960a1999779c62a200ee4c231d
+  languageName: node
+  linkType: hard
+
+"ziggy-js@npm:*":
+  version: 2.4.1
+  resolution: "ziggy-js@npm:2.4.1"
+  dependencies:
+    "@types/qs": "npm:^6.9.17"
+    qs: "npm:~6.9.7"
+  checksum: 10/9d84f558f3efdc2d0b88b72ef3b24c0f8540995ce17cec2432fcd161cc0a3cf017a6e73359426209a6c7a98163c1862c83db4d8fdf5757925ff7a28e577e7b1a
   languageName: node
   linkType: hard
