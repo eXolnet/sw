@@ -20,13 +20,22 @@ jobs:
           extensions: json, dom, curl, libxml, mbstring
           coverage: pcov
 
-      - uses: actions/setup-node@v3
+      - name: Setup Node
+        uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: 20
+
+      - name: Set Yarn as package manager
+        shell: bash
+        run: |
+          corepack enable yarn
+          corepack prepare yarn@4.2.1 --activate
+
+      - name: Setup Node Cache
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
           cache: 'yarn'
-          registry-url: 'https://npm.pqina.nl/'
-          always-auth: true
-          scope: '@pqina'
 
       - name: Get Composer cache directory
         id: composer-cache
