@@ -4,7 +4,6 @@ namespace Tests\Feature\Auth;
 
 use App\Providers\AppServiceProvider;
 use App\Domain\Users\Models\User;
-use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Verified;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Event;
