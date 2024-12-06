@@ -3,7 +3,6 @@
 namespace Tests\Feature\Auth;
 
 use App\Providers\AppServiceProvider;
-use App\Providers\RouteServiceProvider;
 use Tests\TestCase;
 
 class RegistrationTest extends TestCase

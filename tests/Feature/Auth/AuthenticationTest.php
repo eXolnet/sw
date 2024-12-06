@@ -4,7 +4,6 @@ namespace Tests\Feature\Auth;
 
 use App\Providers\AppServiceProvider;
 use App\Domain\Users\Models\User;
-use App\Providers\RouteServiceProvider;
 use Tests\TestCase;
 
 class AuthenticationTest extends TestCase
