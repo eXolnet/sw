@@ -2,6 +2,7 @@
 
 namespace Tests\Feature\Auth;
 
+use App\Providers\AppServiceProvider;
 use App\Domain\Users\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Verified;
@@ -41,7 +42,7 @@ class EmailVerificationTest extends TestCase
 
         Event::assertDispatched(Verified::class);
         $this->assertTrue($user->fresh()->hasVerifiedEmail());
-        $response->assertRedirect(RouteServiceProvider::HOME . '?verified=1');
+        $response->assertRedirect(AppServiceProvider::HOME . '?verified=1');
     }
 
     public function testEmailIsNotVerifiedWithInvalidHash(): void
