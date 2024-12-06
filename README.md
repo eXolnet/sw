@@ -6,7 +6,7 @@
 
 ## Environment provided by Docker
 
-* PHP 8.2
+* PHP 8.3
 * Mysql 8.x
 * Redis
 * Mailpit (http://localhost:8026/)
@@ -30,7 +30,7 @@ docker run --rm \
     -u "$(id -u):$(id -g)" \
     -v $(pwd):/var/www/html \
     -w /var/www/html \
-    laravelsail/php82-composer:latest \
+    laravelsail/php83-composer:latest \
     composer install --ignore-platform-reqs
 ```
 
