@@ -55,6 +55,7 @@ reference: https://stackoverflow.com/questions/75686903/open-users-user-docker-b
 
 ## Project setup
 ```
+./vendor/bin/sail yarn set version 4.2.1
 ./vendor/bin/sail php artisan key:generate
 ./vendor/bin/sail composer install
 ./vendor/bin/sail php artisan migrate
