@@ -23,7 +23,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
 
       - name: Set Yarn as package manager
         shell: bash
@@ -34,7 +34,7 @@ jobs:
       - name: Setup Node Cache
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           cache: 'yarn'
 
       - name: Get Composer cache directory
