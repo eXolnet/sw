@@ -201,28 +201,26 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@inertiajs/core@npm:1.3.0":
-  version: 1.3.0
-  resolution: "@inertiajs/core@npm:1.3.0"
+"@inertiajs/core@npm:2.0.8":
+  version: 2.0.8
+  resolution: "@inertiajs/core@npm:2.0.8"
   dependencies:
-    axios: "npm:^1.6.0"
-    deepmerge: "npm:^4.0.0"
-    nprogress: "npm:^0.2.0"
+    axios: "npm:^1.8.2"
+    es-toolkit: "npm:^1.34.1"
     qs: "npm:^6.9.0"
-  checksum: 10/9d6751f346b52d481eff49cc1f91a8fa140a2c82e86aa7f72c33223753fc5c53a311ca5a057aec576dc70e68bb291791d20058a6837b72bdc40135544aff5d3e
+  checksum: 10/7d24b43bfd232edf2d9d8270c9630a69bcf069efd33876e0a61cd5a2eec62c37202ace4f3c38a1132c990b6dd5379ed16e32e4cb9e7bacc53e03780b0a1c38e2
   languageName: node
   linkType: hard
 
-"@inertiajs/vue3@npm:^1.0.0":
-  version: 1.3.0
-  resolution: "@inertiajs/vue3@npm:1.3.0"
+"@inertiajs/vue3@npm:^2.0.8":
+  version: 2.0.8
+  resolution: "@inertiajs/vue3@npm:2.0.8"
   dependencies:
-    "@inertiajs/core": "npm:1.3.0"
-    lodash.clonedeep: "npm:^4.5.0"
-    lodash.isequal: "npm:^4.5.0"
+    "@inertiajs/core": "npm:2.0.8"
+    es-toolkit: "npm:^1.33.0"
   peerDependencies:
     vue: ^3.0.0
-  checksum: 10/3cc1ddcc50f1c73f02d0813628a923889a7f0ca81992ad902b5cf2180cba04c48eab7b542cb89591731872c37face9588ff1aad54e75ed357cba6f7ce0e94ad9
+  checksum: 10/0f12287847f45a303b307130f9b8c8300bd9d1b26696419706bc80c8e769dc908a35bedce6bc00337d96c666cbb6e94b615e4d6a6ab4447de512246cfc9040ab
   languageName: node
   linkType: hard
 
@@ -786,7 +784,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"axios@npm:^1.1.2, axios@npm:^1.6.0":
+"axios@npm:^1.1.2, axios@npm:^1.8.2":
   version: 1.8.4
   resolution: "axios@npm:1.8.4"
   dependencies:
@@ -1010,13 +1008,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"deepmerge@npm:^4.0.0":
-  version: 4.3.1
-  resolution: "deepmerge@npm:4.3.1"
-  checksum: 10/058d9e1b0ff1a154468bf3837aea436abcfea1ba1d165ddaaf48ca93765fdd01a30d33c36173da8fbbed951dd0a267602bc782fe288b0fc4b7e1e7091afc4529
-  languageName: node
-  linkType: hard
-
 "delayed-stream@npm:~1.0.0":
   version: 1.0.0
   resolution: "delayed-stream@npm:1.0.0"
@@ -1148,6 +1139,18 @@ __metadata:
     has-tostringtag: "npm:^1.0.2"
     hasown: "npm:^2.0.2"
   checksum: 10/86814bf8afbcd8966653f731415888019d4bc4aca6b6c354132a7a75bb87566751e320369654a101d23a91c87a85c79b178bcf40332839bd347aff437c4fb65f
+  languageName: node
+  linkType: hard
+
+"es-toolkit@npm:^1.33.0, es-toolkit@npm:^1.34.1":
+  version: 1.34.1
+  resolution: "es-toolkit@npm:1.34.1"
+  dependenciesMeta:
+    "@trivago/prettier-plugin-sort-imports@4.3.0":
+      unplugged: true
+    prettier-plugin-sort-re-exports@0.0.1:
+      unplugged: true
+  checksum: 10/4542c82c382a2116265cd53708a4fc2c5700f57dca7889e59c2d02c3d1cd71079467f130441594d325c4e689f7f4201e8a58c5b06989262c91e6324b45e8594a
   languageName: node
   linkType: hard
 
@@ -1653,20 +1656,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lodash.clonedeep@npm:^4.5.0":
-  version: 4.5.0
-  resolution: "lodash.clonedeep@npm:4.5.0"
-  checksum: 10/957ed243f84ba6791d4992d5c222ffffca339a3b79dbe81d2eaf0c90504160b500641c5a0f56e27630030b18b8e971ea10b44f928a977d5ced3c8948841b555f
-  languageName: node
-  linkType: hard
-
-"lodash.isequal@npm:^4.5.0":
-  version: 4.5.0
-  resolution: "lodash.isequal@npm:4.5.0"
-  checksum: 10/82fc58a83a1555f8df34ca9a2cd300995ff94018ac12cc47c349655f0ae1d4d92ba346db4c19bbfc90510764e0c00ddcc985a358bdcd4b3b965abf8f2a48a214
-  languageName: node
-  linkType: hard
-
 "lru-cache@npm:^10.0.1, lru-cache@npm:^10.2.0":
   version: 10.4.3
   resolution: "lru-cache@npm:10.4.3"
@@ -1944,13 +1933,6 @@ __metadata:
   version: 0.1.2
   resolution: "normalize-range@npm:0.1.2"
   checksum: 10/9b2f14f093593f367a7a0834267c24f3cb3e887a2d9809c77d8a7e5fd08738bcd15af46f0ab01cc3a3d660386f015816b5c922cea8bf2ee79777f40874063184
-  languageName: node
-  linkType: hard
-
-"nprogress@npm:^0.2.0":
-  version: 0.2.0
-  resolution: "nprogress@npm:0.2.0"
-  checksum: 10/1870a74c054c01899f89e85122d7548832d083b5fa5d3cc6aafc2d4f92901e15face402ef557be5b103aed7b6e1406c656b842dec32b553b4b052031ea1b0935
   languageName: node
   linkType: hard
 
@@ -2259,7 +2241,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "root-workspace-0b6124@workspace:."
   dependencies:
-    "@inertiajs/vue3": "npm:^1.0.0"
+    "@inertiajs/vue3": "npm:^2.0.8"
     "@tailwindcss/forms": "npm:^0.5.3"
     "@types/ziggy-js": "npm:^1.3.2"
     "@vitejs/plugin-vue": "npm:^4.0.0"
