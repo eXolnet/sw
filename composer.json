@@ -10,7 +10,7 @@
     "require": {
         "php": "8.3.*",
         "inertiajs/inertia-laravel": "^2.0",
-        "laravel/framework": "^11.34",
+        "laravel/framework": "^12.9",
         "laravel/sanctum": "^4.0",
         "laravel/tinker": "^2.9",
         "tightenco/ziggy": "^2.5"
