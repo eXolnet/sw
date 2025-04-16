@@ -61,6 +61,7 @@ reference: https://stackoverflow.com/questions/75686903/open-users-user-docker-b
 ./vendor/bin/sail php artisan migrate
 ./vendor/bin/sail php artisan db:seed
 ./vendor/bin/sail yarn install
+./vendor/bin/sail yarn types:generate
 ```
 
 ### Compiles for development
