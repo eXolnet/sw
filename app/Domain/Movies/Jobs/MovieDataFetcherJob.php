@@ -5,7 +5,6 @@ namespace App\Domain\Movies\Jobs;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 
-// todo: Complete this Class using the SWApi class
 class MovieDataFetcherJob implements ShouldQueue
 {
     use Dispatchable;
@@ -15,18 +14,10 @@ class MovieDataFetcherJob implements ShouldQueue
      */
     public function handle(): void
     {
-        // todo: implement
-    }
-
-    protected function updateMovies(?array $externalMoviesData): ?array
-    {
-        // todo: implement
-        return null;
-    }
-
-    protected function sendEmailNotificationWithDiff(): void
-    {
-        // todo: implement
-        // Send email notification with the diff of the movies data
+        // todo: implement this job
+        // 1. Fetch films data from SWApi
+        // 2. Map the data to the format required by the Movie model
+        // 3. Check if the data has changed in the database
+        // 4. If there are changes, update the database
     }
 }

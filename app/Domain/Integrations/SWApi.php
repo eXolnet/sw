@@ -9,19 +9,14 @@ use Illuminate\Support\Facades\Http;
 
 /**
  * Class SWApi
- * @url https://swapi.dev/
+ * @url https://swapi.tech/
  */
 class SWApi
 {
-    /**
-     * @var int
-     */
-    public const DEFAULT_TIMEOUT = 100;
-
-    /**
-     * @var int
-     */
-    protected int $timeout = self::DEFAULT_TIMEOUT;
+    // public function getFilms(): array
+    // {
+    //     return $this->makeRequest()...
+    // }
 
     /**
      * @return \Illuminate\Http\Client\PendingRequest
@@ -29,14 +24,6 @@ class SWApi
     public function makeRequest(): PendingRequest
     {
         // todo: Complete this method
-        return $this->makeRequestBase();
-    }
-
-    /**
-     * @return \Illuminate\Http\Client\PendingRequest
-     */
-    protected function makeRequestBase(): PendingRequest
-    {
-        return Http::timeout($this->timeout);
+        return Http::baseUrl('https://www.swapi.tech/api/');
     }
 }
