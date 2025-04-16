@@ -40,18 +40,30 @@ docker run --rm \
 ```
 
 ### 5 - Possible errors
-If you are getting a mysql error like this `Another process with pid <id> is using unix socket file` when starting sail. You can try this command and restart sail.
+
+#### Port already in use
+
+If you are getting a mysql error like this `Another process with pid <id> is using unix socket file` when starting sail.
+A port required by a container is possibly used by another process on your machine. You can change the corresponding port in the `.env` file and restart sail.
+
 ```
-docker-compose down --volumes
-./vendor/bin/sail up
+# APP_PORT=8084
+# FORWARD_DB_PORT=3307
+# FORWARD_REDIS_PORT=6379
+# FORWARD_MAILPIT_PORT=1026
+# FORWARD_MAILPIT_DASHBOARD_PORT=8026
+# VITE_PORT=5173
 ```
 
-If you are getting a error like `open /Users/{USER}/.docker/buildx/current: permission denied` when starting sail. You can try this command and restart sail.
+#### Permission denied
+
+If you are getting a error like `open /Users/{USER}/.docker/buildx/current: permission denied` when starting sail. Make sure the `.docker` folder is owned by your user.
+
 ```
 sudo chown -R $(whoami) ~/.docker
-./vendor/bin/sail up
 ```
-reference: https://stackoverflow.com/questions/75686903/open-users-user-docker-buildx-current-permission-denied-on-macbook
+
+Reference: https://stackoverflow.com/questions/75686903/open-users-user-docker-buildx-current-permission-denied-on-macbook
 
 ## Project setup
 ```
