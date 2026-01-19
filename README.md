@@ -6,7 +6,7 @@
 
 ## Environment provided by Docker
 
-* PHP 8.3
+* PHP 8.4
 * Mysql 8.x
 * Redis
 * Mailpit (http://localhost:8026/)
